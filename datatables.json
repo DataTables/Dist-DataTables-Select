@@ -1,0 +1,10 @@
+{
+    "css": [],
+    "js": [
+        "js/dataTables.select.js",
+        "js/dataTables.select.min.js"
+    ],
+    "src-repo": "http://github.com/DataTables/Select",
+    "last-sync": "5ae0cb5bd5d8b77a6c424ab896e2c621d93c0d90",
+    "last-tag": "1.0.1"
+}
