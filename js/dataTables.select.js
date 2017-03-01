@@ -304,14 +304,13 @@ function disableMouseSelection( dt )
 {
 	var ctx = dt.settings()[0];
 	var selector = ctx._select.selector;
-	var container = dt.table().container();
 
-	$( container )
+	$( dt.table().container() )
 		.off( 'mousedown.dtSelect', selector )
 		.off( 'mouseup.dtSelect', selector )
 		.off( 'click.dtSelect', selector );
 
-	$('body').off( 'click.dtSelect' + container.id );
+	$('body').off( 'click.dtSelect' );
 }
 
 /**
@@ -349,7 +348,7 @@ function enableMouseSelection ( dt )
 
 			// If text was selected (click and drag), then we shouldn't change
 			// the row's selected state
-			if ( window.getSelection && window.getSelection().toString() ) {
+			if ( window.getSelection && $.trim( window.getSelection().toString() ) ) {
 				return;
 			}
 
@@ -393,7 +392,7 @@ function enableMouseSelection ( dt )
 		} );
 
 	// Blurable
-	$('body').on( 'click.dtSelect' + container.id, function ( e ) {
+	$('body').on( 'click.dtSelect', function ( e ) {
 		if ( ctx._select.blurable ) {
 			// If the click was inside the DataTables container, don't blur
 			if ( $(e.target).parents().filter( dt.table().container() ).length ) {
