@@ -1,6 +1,6 @@
 {
     "name": "datatables.net-select",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "description": "Select for DataTables ",
     "files": [
         "js/dataTables.select.js"
