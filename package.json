@@ -3,7 +3,7 @@
     "version": "1.2.2",
     "description": "Select for DataTables ",
     "files": [
-        "js/dataTables.select.js"
+        "js/**/*.js"
     ],
     "main": "./js/dataTables.select.js",
     "keywords": [
