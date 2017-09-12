@@ -1,6 +1,6 @@
 {
     "name": "datatables.net-select",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "Select for DataTables ",
     "files": [
         "js/**/*.js"
@@ -23,7 +23,7 @@
     },
     "dependencies": {
         "jquery": ">=1.7",
-        "datatables.net": ">=1.10.9"
+        "datatables.net": "^1.10.15"
     },
     "repository": {
         "type": "git",
