@@ -1,16 +1,16 @@
-/*! Select for DataTables 1.2.3
- * 2015-2017 SpryMedia Ltd - datatables.net/license/mit
+/*! Select for DataTables 1.2.3-dev
+ * 2015-2016 SpryMedia Ltd - datatables.net/license/mit
  */
 
 /**
  * @summary     Select for DataTables
  * @description A collection of API methods, events and buttons for DataTables
  *   that provides selection options of the items in a DataTable
- * @version     1.2.3
+ * @version     1.2.3-dev
  * @file        dataTables.select.js
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     datatables.net/forums
- * @copyright   Copyright 2015-2017 SpryMedia Ltd.
+ * @copyright   Copyright 2015-2016 SpryMedia Ltd.
  *
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
@@ -54,7 +54,7 @@ var DataTable = $.fn.dataTable;
 // Version information for debugger
 DataTable.select = {};
 
-DataTable.select.version = '1.2.3';
+DataTable.select.version = '1.2.3-dev';
 
 DataTable.select.init = function ( dt ) {
 	var ctx = dt.settings()[0];
@@ -348,8 +348,16 @@ function enableMouseSelection ( dt )
 
 			// If text was selected (click and drag), then we shouldn't change
 			// the row's selected state
-			if ( window.getSelection && $.trim( window.getSelection().toString() ) ) {
-				return;
+			if ( window.getSelection ) {
+				var selection = window.getSelection();
+
+				// If the element that contains the selection is not in the table, we can ignore it
+				// This can happen if the developer selects text from the click event
+				if ( ! selection.anchorNode || $(selection.anchorNode).closest('table')[0] === dt.table().node() ) {
+					if ( $.trim(selection.toString()) !== '' ) {
+						return;
+					}
+				}
 			}
 
 			var ctx = dt.settings()[0];
@@ -452,10 +460,6 @@ function info ( api )
 	var ctx = api.settings()[0];
 
 	if ( ! ctx._select.info || ! ctx.aanFeatures.i ) {
-		return;
-	}
-
-	if ( api.select.style() === 'api' ) {
 		return;
 	}
 
