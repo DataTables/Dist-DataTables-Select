@@ -5,7 +5,7 @@
     "files": [
         "js/**/*.js"
     ],
-    "main": "./js/dataTables.select.js",
+    "main": "js/dataTables.select.js",
     "keywords": [
         "select",
         "selection",
