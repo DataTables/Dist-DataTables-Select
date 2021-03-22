@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <metadata>
-        <id>datatables.net-select</id>
-        <version>1.3.2</version>
-        <description>Select for DataTables</description>
-        <authors>SpryMedia Ltd</authors>
-        <projectUrl>http://datatables.net</projectUrl>
-        <license type="expression">MIT</license>
-        <tags>select DataTables jQuery table </tags>
-        <repository type="git" url="https://github.com/DataTables/Dist-DataTables-Select.git"/>
-        <dependencies>
-            <dependency id="jquery" version="1.7.0"/>
-            <dependency id="datatables.net" version="1.10.15"/>
-        </dependencies>
-    </metadata>
-    <files>
-        <file src="js/datatables.select.js"/>
-        <file src="js/datatables.select.min.js"/>
-        <file src="types.d.ts"/>
-    </files>
+  <metadata>
+    <id>datatables.net-select</id>
+    <version>1.3.2</version>
+    <description>Select for DataTables</description>
+    <authors>SpryMedia Ltd</authors>
+    <projectUrl>http://datatables.net</projectUrl>
+    <license type="expression">MIT</license>
+    <tags>select DataTables jQuery table </tags>
+    <repository type="git" url="https://github.com/DataTables/Dist-DataTables-Select.git"/>
+    <dependencies>
+      <dependency id="jquery" version="1.7.0"/>
+      <dependency id="datatables.net" version="1.10.15"/>
+    </dependencies>
+    <contentFiles>
+      <files include="**/*" buildAction="Content"/>
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="js/datatables.select.js" target="content\Scripts"/>
+    <file src="js/datatables.select.min.js" target="content\Scripts"/>
+    <file src="types.d.ts" target="content\Scripts"/>
+    <file src="js/datatables.select.js" target="contentFiles\any\any\wwwroot\js"/>
+    <file src="js/datatables.select.min.js" target="contentFiles\any\any\wwwroot\js"/>
+    <file src="types.d.ts" target="contentFiles\any\any\wwwroot\js"/>
+  </files>
 </package>
