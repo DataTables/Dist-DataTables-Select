@@ -1,6 +1,6 @@
 # Select for DataTables 
 
-This package contains distribution files for the [Select extension](https://datatables.net/extensions/select) for [DataTables](https://datatables.net/). Only the core software for this library is contained in this package - to be correctly styled, a styling package for Select must also be included. Styling options include DataTable's native styling, [Bootstrap](http://getbootstrap.com) and [Foundation](http://foundation.zurb.com/).
+This package contains distribution files for the [Select extension](https://datatables.net/extensions/Select) for [DataTables](https://datatables.net/). Only the core software for this library is contained in this package - to be correctly styled, a styling package for Select must also be included. Styling options include DataTable's native styling, [Bootstrap](http://getbootstrap.com) and [Foundation](http://foundation.zurb.com/).
 
 Select provides table item selection capabilities - rows, columns and cells can be selected individually or collectively. Complex selection operations such as operating system style selection (ctrl/cmd and shift click) for multiple rows can be enabled with a single option for a DataTable.
 
@@ -32,8 +32,7 @@ bower install --save datatables.net-select
 
 ## Documentation
 
-Full documentation of the DataTables options, API and plug-in interface are available on the DOCS_LINK. The site also contains information on the wide variety of plug-ins that are available for DataTables, which can be used to enhance and customise your table even further.
-
+Full documentation and examples for Select can be found [on the website](https://datatables.net/extensions/select).
 
 ## Bug / Support
 
