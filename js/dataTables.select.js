@@ -1,12 +1,53 @@
-/*! Select for DataTables 1.4.0-dev
+
+/*! Select for DataTables 1.4.0
  * 2015-2021 SpryMedia Ltd - datatables.net/license/mit
  */
+
+(function( factory ){
+	if ( typeof define === 'function' && define.amd ) {
+		// AMD
+		define( ['jquery', 'datatables.net'], function ( $ ) {
+			return factory( $, window, document );
+		} );
+	}
+	else if ( typeof exports === 'object' ) {
+		// CommonJS
+		module.exports = function (root, $) {
+			if ( ! root ) {
+				// CommonJS environments without a window global must pass a
+				// root. This will give an error otherwise
+				root = window;
+			}
+
+			if ( ! $ ) {
+				$ = typeof window !== 'undefined' ? // jQuery's factory checks for a global window
+					require('jquery') :
+					require('jquery')( root );
+			}
+
+			if ( ! $.fn.dataTable ) {
+				require('datatables.net')(root, $);
+			}
+
+
+			return factory( $, root, root.document );
+		};
+	}
+	else {
+		// Browser
+		factory( jQuery, window, document );
+	}
+}(function( $, window, document, undefined ) {
+'use strict';
+var DataTable = $.fn.dataTable;
+
+
 
 /**
  * @summary     Select for DataTables
  * @description A collection of API methods, events and buttons for DataTables
  *   that provides selection options of the items in a DataTable
- * @version     1.4.0-dev
+ * @version     1.4.0
  * @file        dataTables.select.js
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     datatables.net/forums
@@ -54,7 +95,7 @@ var DataTable = $.fn.dataTable;
 // Version information for debugger
 DataTable.select = {};
 
-DataTable.select.version = '1.4.0-dev';
+DataTable.select.version = '1.4.0';
 
 DataTable.select.init = function ( dt ) {
 	var ctx = dt.settings()[0];
@@ -486,6 +527,13 @@ function enableMouseSelection ( dt )
 
 			// Don't blur in Editor form
 			if ( $(e.target).parents('div.DTE').length ) {
+				return;
+			}
+
+			var event = $.Event('select-blur.dt');
+			eventTrigger( dt, event, [ e.target, e ] );
+
+			if ( event.isDefaultPrevented() ) {
 				return;
 			}
 
@@ -1317,4 +1365,8 @@ $(document).on( 'preInit.dt.dtSelect', function (e, ctx) {
 
 
 return DataTable.select;
+}));
+
+
+return DataTable;
 }));
