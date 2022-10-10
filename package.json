@@ -2,10 +2,12 @@
     "name": "datatables.net-select",
     "description": "Select for DataTables",
     "main": "js/dataTables.select.js",
+    "module": "js/dataTables.select.mjs",
     "types": "./types/types.d.ts",
     "version": "1.4.0",
     "files": [
         "js/**/*.js",
+        "js/**/*.mjs",
         "types/**/*.d.ts"
     ],
     "keywords": [
