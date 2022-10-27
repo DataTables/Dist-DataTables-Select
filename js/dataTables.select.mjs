@@ -8,55 +8,6 @@ import DataTable from 'datatables.net';
 
 
 
-/**
- * @summary     Select for DataTables
- * @description A collection of API methods, events and buttons for DataTables
- *   that provides selection options of the items in a DataTable
- * @version     1.4.0
- * @file        dataTables.select.js
- * @author      SpryMedia Ltd (www.sprymedia.co.uk)
- * @contact     datatables.net/forums
- * @copyright   Copyright 2015-2021 SpryMedia Ltd.
- *
- * This source file is free software, available under the following license:
- *   MIT license - http://datatables.net/license/mit
- *
- * This source file is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
- * or FITNESS FOR A PARTICULAR PURPOSE. See the license files for details.
- *
- * For details please refer to: http://www.datatables.net/extensions/select
- */
-(function( factory ){
-	if ( typeof define === 'function' && define.amd ) {
-		// AMD
-		define( ['jquery', 'datatables.net'], function ( $ ) {
-			return factory( $, window, document );
-		} );
-	}
-	else if ( typeof exports === 'object' ) {
-		// CommonJS
-		module.exports = function (root, $) {
-			if ( ! root ) {
-				root = window;
-			}
-
-			if ( ! $ || ! $.fn.dataTable ) {
-				$ = require('datatables.net')(root, $).$;
-			}
-
-			return factory( $, root, root.document );
-		};
-	}
-	else {
-		// Browser
-		factory( jQuery, window, document );
-	}
-}(function( $, window, document, undefined ) {
-'use strict';
-var DataTable = $.fn.dataTable;
-
-
 // Version information for debugger
 DataTable.select = {};
 
@@ -1327,10 +1278,6 @@ $(document).on( 'preInit.dt.dtSelect', function (e, ctx) {
 
 	DataTable.select.init( new DataTable.Api( ctx ) );
 } );
-
-
-return DataTable.select;
-}));
 
 
 export default DataTable;
