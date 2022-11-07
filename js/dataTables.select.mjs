@@ -1,5 +1,4 @@
-
-/*! Select for DataTables 1.4.0
+/*! Select for DataTables 1.5.0
  * 2015-2021 SpryMedia Ltd - datatables.net/license/mit
  */
 
@@ -11,7 +10,7 @@ import DataTable from 'datatables.net';
 // Version information for debugger
 DataTable.select = {};
 
-DataTable.select.version = '1.4.0';
+DataTable.select.version = '1.5.0';
 
 DataTable.select.init = function ( dt ) {
 	var ctx = dt.settings()[0];
