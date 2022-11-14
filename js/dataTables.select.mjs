@@ -1262,6 +1262,7 @@ $.each( [ 'Row', 'Column', 'Cell' ], function ( i, item ) {
 } );
 
 
+$.fn.DataTable.select = DataTable.select;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Initialisation
