@@ -4,7 +4,7 @@
     "main": "js/dataTables.select.js",
     "module": "js/dataTables.select.mjs",
     "types": "./types/types.d.ts",
-    "version": "1.5.0",
+    "version": "1.6.0",
     "files": [
         "js/**/*.js",
         "js/**/*.mjs",
