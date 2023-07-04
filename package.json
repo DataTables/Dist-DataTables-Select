@@ -4,7 +4,7 @@
     "main": "js/dataTables.select.js",
     "module": "js/dataTables.select.mjs",
     "types": "./types/types.d.ts",
-    "version": "1.6.2",
+    "version": "1.7.0",
     "files": [
         "js/**/*.js",
         "js/**/*.mjs",
@@ -12,7 +12,7 @@
     ],
     "keywords": [
         "select",
- "selection",
+        "selection",
         "Datatables",
         "jQuery",
         "table",
