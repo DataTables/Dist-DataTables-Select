@@ -152,7 +152,7 @@ interface ApiSelect<Api> {
 	 * @param flag Value to set for the blurable option - true to enable, false to disable.
 	 * @returns DataTables Api instance for chaining
 	 */
-	blurable(flag: boolean): Api;
+	blurable(flag): Api;
 
 	/**
 	 * Get the summary information display state for the table.
@@ -167,7 +167,7 @@ interface ApiSelect<Api> {
 	 * @param flag Value to set for the information summary display state - true to enable, false to disable.
 	 * @returns DataTables API instance for chaining.
 	 */
-	info(flag: boolean): Api;
+	info(flag): Api;
 
 	/**
 	 * Get the items that will be selected by user interaction (i.e. a click on the table).
@@ -226,6 +226,6 @@ interface ApiSelect<Api> {
 	 * @param set true to allow item deselection, false to disallow.
 	 * @returns DataTables API instance for chaining.
 	 */
-	toggleable(set: boolean): Api;
+	toggleable(set): Api;
 }
 
