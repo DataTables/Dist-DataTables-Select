@@ -1,5 +1,4 @@
 {
-    "version": "1.4.0",
     "name": "datatables.net/datatables.net-select",
     "description": "Select provides table item selection capabilities - rows, columns and cells can be selected individually or collectively. Complex selection operations such as operating system style selection (ctrl/cmd and shift click) for multiple rows can be enabled with a single option for a DataTable. This is Select for DataTables",
     "support": {
@@ -20,7 +19,7 @@
     "minimum-stability": "dev",
     "keywords": [
         "select",
- "selection",
+        "selection",
         "Datatables",
         "jQuery",
         "table"
