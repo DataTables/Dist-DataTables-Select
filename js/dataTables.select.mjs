@@ -879,8 +879,10 @@ $.each(
 				data = settings[o.prop][indexes[i]];
 
 				if (
-					(selected === true && data._select_selected === true) ||
-					(selected === false && !data._select_selected)
+					data && (
+						(selected === true && data._select_selected === true) ||
+						(selected === false && !data._select_selected)
+					)
 				) {
 					out.push(indexes[i]);
 				}
@@ -904,11 +906,13 @@ DataTable.ext.selector.cell.push(function (settings, opts, cells) {
 		rowData = settings.aoData[cells[i].row];
 
 		if (
-			(selected === true &&
-				rowData._selected_cells &&
-				rowData._selected_cells[cells[i].column] === true) ||
-			(selected === false &&
-				(!rowData._selected_cells || !rowData._selected_cells[cells[i].column]))
+			rowData && (
+				(selected === true &&
+					rowData._selected_cells &&
+					rowData._selected_cells[cells[i].column] === true) ||
+				(selected === false &&
+					(!rowData._selected_cells || !rowData._selected_cells[cells[i].column]))
+			)
 		) {
 			out.push(cells[i]);
 		}
