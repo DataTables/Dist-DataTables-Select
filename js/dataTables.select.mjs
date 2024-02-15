@@ -1,4 +1,4 @@
-/*! Select for DataTables 2.0.0-dev
+/*! Select for DataTables 2.0.0
  * © SpryMedia Ltd - datatables.net/license/mit
  */
 
@@ -12,7 +12,7 @@ let $ = jQuery;
 // Version information for debugger
 DataTable.select = {};
 
-DataTable.select.version = '2.0.0-dev';
+DataTable.select.version = '2.0.0';
 
 DataTable.select.init = function (dt) {
 	var ctx = dt.settings()[0];
