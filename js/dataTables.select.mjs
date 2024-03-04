@@ -1060,12 +1060,19 @@ apiRegisterPlural('rows().select()', 'row().select()', function (select) {
 		for (var i=0 ; i<dtColumns.length ; i++) {
 			var col = dtColumns[i];
 
+			// Regenerate the column type if not present
+			if (col.sType === null) {
+				api.columns().types()
+			}
+			
 			if (col.sType === 'select-checkbox') {
 				// Make sure the checkbox shows the right state
 				$('input.dt-select-checkbox', dtData.anCells[i]).prop('checked', true);
 
-				// Invalidate the sort data for this column
-				dtData._aSortData[i] = null;
+				// Invalidate the sort data for this column, if not already done
+				if (dtData._aSortData !== null) {
+					dtData._aSortData[i] = null;
+				}
 			}
 		}
 	});
@@ -1183,12 +1190,19 @@ apiRegisterPlural('rows().deselect()', 'row().deselect()', function () {
 		for (var i=0 ; i<dtColumns.length ; i++) {
 			var col = dtColumns[i];
 
+			// Regenerate the column type if not present
+			if (col.sType === null) {
+				api.columns().types()
+			}
+			
 			if (col.sType === 'select-checkbox') {
 				// Make sure the checkbox shows the right state
 				$('input.dt-select-checkbox', dtData.anCells[i]).prop('checked', false);
 
-				// Invalidate the sort data for this column
-				dtData._aSortData[i] = null;
+				// Invalidate the sort data for this column, if not already done
+				if (dtData._aSortData !== null) {
+					dtData._aSortData[i] = null;
+				}
 			}
 		}
 	});
