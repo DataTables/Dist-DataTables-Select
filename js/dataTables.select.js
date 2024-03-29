@@ -1,4 +1,4 @@
-/*! Select for DataTables 2.0.0
+/*! Select for DataTables 2.0.1-dev
  * © SpryMedia Ltd - datatables.net/license/mit
  */
 
@@ -52,7 +52,7 @@ var DataTable = $.fn.dataTable;
 // Version information for debugger
 DataTable.select = {};
 
-DataTable.select.version = '2.0.0';
+DataTable.select.version = '2.0.1-dev';
 
 DataTable.select.init = function (dt) {
 	var ctx = dt.settings()[0];
@@ -1106,8 +1106,12 @@ apiRegisterPlural('rows().select()', 'row().select()', function (select) {
 			}
 			
 			if (col.sType === 'select-checkbox') {
+				var cells = dtData.anCells;
+
 				// Make sure the checkbox shows the right state
-				$('input.dt-select-checkbox', dtData.anCells[i]).prop('checked', true);
+				if (cells && cells[i]) {
+					$('input.dt-select-checkbox', cells[i]).prop('checked', true);
+				}
 
 				// Invalidate the sort data for this column, if not already done
 				if (dtData._aSortData !== null) {
