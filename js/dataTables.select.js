@@ -52,6 +52,10 @@ var DataTable = $.fn.dataTable;
 // Version information for debugger
 DataTable.select = {};
 
+DataTable.select.classes = {
+	checkbox: 'dt-select-checkbox'
+};
+
 DataTable.select.version = '2.0.1';
 
 DataTable.select.init = function (dt) {
@@ -367,6 +371,18 @@ function cellRange(dt, idx, last) {
 }
 
 /**
+ * Get the class
+ * @returns 
+ */
+function checkboxClass(selector) {
+	var name = DataTable.select.classes.checkbox;
+
+	return selector
+		? name.replace(/ /g, '.')
+		: name;
+}
+
+/**
  * Disable mouse selection by removing the selectors
  *
  * @param {DataTable.Api} dt DataTable to remove events from
@@ -594,7 +610,7 @@ function initCheckboxHeader( dt ) {
 			// If no checkbox yet, insert one
 			var input = $('<input>')
 				.attr({
-					class: 'dt-select-checkbox',
+					class: checkboxClass(true),
 					type: 'checkbox',
 					'aria-label': dt.i18n('select.aria.headerCheckbox') || 'Select all rows'
 				})
@@ -669,7 +685,7 @@ function init(ctx) {
 			if (d._select_selected) {
 				$(row)
 					.addClass(ctx._select.className)
-					.find('input.dt-select-checkbox').prop('checked', true);
+					.find('input.' + checkboxClass(true)).prop('checked', true);
 			}
 
 			// Cells and columns - if separated out, we would need to do two
@@ -1112,7 +1128,7 @@ apiRegisterPlural('rows().select()', 'row().select()', function (select) {
 
 				// Make sure the checkbox shows the right state
 				if (cells && cells[i]) {
-					$('input.dt-select-checkbox', cells[i]).prop('checked', true);
+					$('input.' + checkboxClass(true), cells[i]).prop('checked', true);
 				}
 
 				// Invalidate the sort data for this column, if not already done
@@ -1246,7 +1262,7 @@ apiRegisterPlural('rows().deselect()', 'row().deselect()', function () {
 
 				// Make sure the checkbox shows the right state
 				if (cells && cells[i]) {
-					$('input.dt-select-checkbox', dtData.anCells[i]).prop('checked', false);
+					$('input.' + checkboxClass(true), dtData.anCells[i]).prop('checked', false);
 				}
 
 				// Invalidate the sort data for this column, if not already done
@@ -1527,7 +1543,7 @@ DataTable.render.select = function (valueProp, nameProp) {
 			return $('<input>')
 				.attr({
 					'aria-label': ariaLabel,
-					class: 'dt-select-checkbox',
+					class: checkboxClass(),
 					name: nameFn ? nameFn(row) : null,
 					type: 'checkbox',
 					value: valueFn ? valueFn(row) : null,
