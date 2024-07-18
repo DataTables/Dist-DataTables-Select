@@ -1598,10 +1598,10 @@ DataTable.ext.order['select-checkbox'] = function (settings, col) {
 		.nodes()
 		.map(function (td) {
 			if (settings._select.items === 'row') {
-				return $(td).parent().hasClass(settings._select.className);
+				return $(td).parent().hasClass(settings._select.className).toString();
 			}
 			else if (settings._select.items === 'cell') {
-				return $(td).hasClass(settings._select.className);
+				return $(td).hasClass(settings._select.className).toString();
 			}
 			return false;
 		});
