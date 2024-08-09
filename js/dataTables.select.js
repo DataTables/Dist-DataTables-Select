@@ -610,7 +610,7 @@ function initCheckboxHeader( dt, headerCheckbox ) {
 		var col = dtInternalColumns[idx];
 
 		// Checkbox columns have a rendering function with a given name
-		if (! col.mRender || col.mRender.name !== 'selectCheckbox') {
+		if (! col.mRender || col.mRender._name !== 'selectCheckbox') {
 			return;
 		}
 		var header = dt.column(idx).header();
@@ -1537,7 +1537,7 @@ DataTable.type('select-checkbox', {
 				return false; // no op
 			},
 			init: function (settings, col, idx) {
-				return col.mRender && col.mRender.name === 'selectCheckbox';
+				return col.mRender && col.mRender._name === 'selectCheckbox';
 			}
 		}
 		: function (data) {
@@ -1563,7 +1563,7 @@ DataTable.render.select = function (valueProp, nameProp) {
 	var valueFn = valueProp ? DataTable.util.get(valueProp) : null;
 	var nameFn = nameProp ? DataTable.util.get(nameProp) : null;
 
-	return function selectCheckbox(data, type, row, meta) {
+	var fn = function (data, type, row, meta) {
 		var dtRow = meta.settings.aoData[meta.row];
 		var selected = dtRow._select_selected;
 		var ariaLabel = meta.settings.oLanguage.select.aria.rowCheckbox;
@@ -1597,6 +1597,12 @@ DataTable.render.select = function (valueProp, nameProp) {
 
 		return selected ? 'X' : '';
 	}
+
+	// Workaround so uglify doesn't strip the function name. It is used
+	// for the column type detection.
+	fn._name = 'selectCheckbox';
+
+	return fn;
 }
 
 // Legacy checkbox ordering
