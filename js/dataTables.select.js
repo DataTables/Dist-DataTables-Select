@@ -1,4 +1,4 @@
-/*! Select for DataTables 3.1.2
+/*! Select for DataTables 3.1.3
  * © SpryMedia Ltd - datatables.net/license/mit
  */
 
@@ -56,7 +56,7 @@ DataTable.select.classes = {
 	checkbox: 'dt-select-checkbox'
 };
 
-DataTable.select.version = '3.1.2';
+DataTable.select.version = '3.1.3';
 
 DataTable.select.init = function (dt) {
 	var ctx = dt.settings()[0];
