@@ -1,4 +1,4 @@
-/*! Select 4.0.0-beta.1 for DataTables
+/*! Select 4.0.0 for DataTables
  * Copyright (c) SpryMedia Ltd - datatables.net/license
  */
 
@@ -152,7 +152,7 @@ DataTable.select = {
             });
         }
     },
-    version: '4.0.0-beta.1'
+    version: '4.0.0'
 };
 /*
 
