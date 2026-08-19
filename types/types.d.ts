@@ -5,13 +5,13 @@ type StyleType = 'api' | 'single' | 'multi' | 'os' | 'multi+shift';
 type Selectable = (data: any, tr: HTMLElement, idx: number) => boolean;
 type HeaderCheckbox = boolean | 'none' | 'select-all' | 'select-page';
 declare module 'datatables.net' {
-    interface Config {
+    interface Options {
         select?: boolean | string | ConfigSelect;
     }
     interface Defaults {
         select?: boolean | string | ConfigSelect;
     }
-    interface ConfigLanguage {
+    interface Language {
         /**
          * Select language options
          */
