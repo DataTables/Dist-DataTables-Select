@@ -1,6 +1,6 @@
 {
     "name": "datatables.net/datatables.net-select",
-    "description": "Select provides table item selection capabilities - rows, columns and cells can be selected individually or collectively. Complex selection operations such as operating system style selection (ctrl/cmd and shift click) for multiple rows can be enabled with a single option for a DataTable. This is Select for DataTables",
+    "description": "Select for DataTables",
     "support": {
         "forum": "https://datatables.net/forums",
         "source": "https://github.com/DataTables/Dist-DataTables-Select"
@@ -25,6 +25,6 @@
         "table"
     ],
     "require": {
-        "datatables.net/datatables.net": ">=1.12.1"
+        "datatables.net/datatables.net": "^3"
     }
 }
