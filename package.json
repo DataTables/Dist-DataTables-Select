@@ -1,14 +1,13 @@
 {
     "name": "datatables.net-select",
     "description": "Select for DataTables",
-    "main": "js/dataTables.select.js",
-    "module": "js/dataTables.select.mjs",
+    "main": "./js/dataTables.select.js",
+    "module": "./js/dataTables.select.mjs",
     "types": "./types/types.d.ts",
     "version": "4.0.1",
     "files": [
-        "js/**/*.js",
-        "js/**/*.mjs",
-        "types/**/*.d.ts"
+        "js",
+        "types"
     ],
     "keywords": [
         "select",
@@ -31,5 +30,16 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/DataTables/Select.git"
-    }
+    },
+    "exports": {
+        ".": {
+            "types": "./types/types.d.ts",
+            "import": "./js/dataTables.select.mjs",
+            "default": "./js/dataTables.select.mjs",
+            "require": "./js/dataTables.select.js"
+        },
+        "./js/*": "./js/*",
+        "./package.json": "./package.json"
+    },
+    "sideEffects": true
 }
