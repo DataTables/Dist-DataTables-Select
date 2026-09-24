@@ -35,8 +35,8 @@
         ".": {
             "types": "./types/types.d.ts",
             "import": "./js/dataTables.select.mjs",
-            "default": "./js/dataTables.select.mjs",
-            "require": "./js/dataTables.select.js"
+            "require": "./js/dataTables.select.js",
+            "default": "./js/dataTables.select.mjs"
         },
         "./js/*": "./js/*",
         "./package.json": "./package.json"
