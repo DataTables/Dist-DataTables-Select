@@ -10,6 +10,6 @@
         "types/types.d.ts"
     ],
     "src-repo": "http://github.com/DataTables/Select",
-    "last-tag": "4.1.0",
+    "last-tag": "4.1.1",
     "last-sync": "60545c462ae016652eec40667e142a0f2d943a0b"
 }
